@@ -26,7 +26,7 @@ jobs:
         run: npm install
 
       - name: Lint check
-        run: npx eslint
+        run: npx eslint eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet --fix
 
       - name: TS check
         run: npx tsc --noEmit

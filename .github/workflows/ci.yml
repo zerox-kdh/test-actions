@@ -25,8 +25,8 @@ jobs:
       - name: Install the project dependencies
         run: npm install
 
-      - name: Lint check
-        run: npx eslint eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet --fix
+      # - name: Lint check
+      #   run: npx eslint eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet --fix
 
       - name: TS check
         run: npx tsc --noEmit

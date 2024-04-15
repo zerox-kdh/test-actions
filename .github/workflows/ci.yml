@@ -29,4 +29,4 @@ jobs:
       #   run: npx eslint eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet --fix
 
       - name: TS check
-        run: npx tsc --noEmit
+        run: npm run ts-check

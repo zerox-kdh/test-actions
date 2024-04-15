@@ -16,10 +16,11 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0 # otherwise, you will fail to push refs to dest repo
-      - name: Automatic Rebase
+      - name: Setup node
         uses: actions/setup-node@v4
           with:
             node-version: 20
+      - name: Automatic Rebase
         uses: cirrus-actions/rebase@1.8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

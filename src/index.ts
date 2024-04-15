@@ -1,5 +1,5 @@
 
-const value: string = '1'
+const value: string = '2'
 
 
 function add (a: number, b: number): number {

@@ -1,0 +1,32 @@
+
+on: 
+  pull_request:
+    branches: 
+      - 'feat/**'
+  push:
+    branches: 
+      - 'feat/**'
+jobs:   
+  ci:
+    name: CI
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+      
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn cache dir)" >>$GITHUB_OUTPUT
+
+      - name: Install the project dependencies
+        run: npm install
+
+      # - name: Lint check
+      #   run: npx eslint eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet --fix
+
+      - name: TS check
+        run: npm run ts-check

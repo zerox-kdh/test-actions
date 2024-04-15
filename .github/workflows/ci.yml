@@ -1,0 +1,17 @@
+
+on: 
+  pull_request:
+    branches: 
+      - 'feat/**'
+  push:
+    branches: 
+      - 'feat/**'
+jobs:   
+  ci:
+    name: CI
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Type check
+        run: npm run ts-check
+      - name: Lint
+        run: npx eslint

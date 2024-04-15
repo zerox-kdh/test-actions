@@ -16,19 +16,10 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ matrix.node-version }}
       - name: Automatic Rebase
         uses: cirrus-actions/rebase@1.8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  ci:
-    name: CI
-    needs: rebase
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Type check
-        run: npm run ts-check
-      - name: Lint
-        run: npx eslint
 
 
